@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+
+.pytest_cache/
+.DS_Store
+data/*.db
+
+# Real patient-level data must never be committed
+data/raw/
+data/physionet2019/
+data/mimic/

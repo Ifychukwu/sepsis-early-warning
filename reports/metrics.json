@@ -1,0 +1,224 @@
+{
+  "data": {
+    "patients": 4000,
+    "patient_hours": 346303,
+    "septic_patients_pct": 10.4,
+    "test_patients": 1200
+  },
+  "row_level": {
+    "model": {
+      "auroc": 0.819,
+      "auprc": 0.369
+    },
+    "NEWS2": {
+      "auroc": 0.709,
+      "auprc": 0.042
+    },
+    "qSOFA": {
+      "auroc": 0.643,
+      "auprc": 0.025
+    },
+    "model_without_lab_ordering_features": {
+      "auroc": 0.806,
+      "auprc": 0.298
+    }
+  },
+  "alerting": {
+    "NEWS2 >= 5 (NHS urgent response)": {
+      "threshold": 5.0,
+      "sensitivity": 0.806,
+      "median_lead_time_h": 5.0,
+      "false_alarms_per_100_patient_days": 97.6,
+      "ppv_of_alerts": 0.02,
+      "septic_patients": 108
+    },
+    "NEWS2 >= 7 (NHS emergency response)": {
+      "threshold": 7.0,
+      "sensitivity": 0.593,
+      "median_lead_time_h": 2.0,
+      "false_alarms_per_100_patient_days": 33.5,
+      "ppv_of_alerts": 0.042,
+      "septic_patients": 108
+    },
+    "qSOFA >= 2": {
+      "threshold": 2.0,
+      "sensitivity": 0.509,
+      "median_lead_time_h": 2.0,
+      "false_alarms_per_100_patient_days": 20.1,
+      "ppv_of_alerts": 0.059,
+      "septic_patients": 108
+    },
+    "Model, same false-alarm rate as NEWS2 >= 5": {
+      "threshold": 0.0451,
+      "sensitivity": 0.991,
+      "median_lead_time_h": 5.0,
+      "false_alarms_per_100_patient_days": 97.3,
+      "ppv_of_alerts": 0.025,
+      "septic_patients": 108
+    },
+    "Model, half the false alarms of NEWS2 >= 5": {
+      "threshold": 0.0882,
+      "sensitivity": 0.972,
+      "median_lead_time_h": 4.0,
+      "false_alarms_per_100_patient_days": 48.8,
+      "ppv_of_alerts": 0.047,
+      "septic_patients": 108
+    },
+    "Model, same false-alarm rate as NEWS2 >= 7": {
+      "threshold": 0.1243,
+      "sensitivity": 0.963,
+      "median_lead_time_h": 3.0,
+      "false_alarms_per_100_patient_days": 31.9,
+      "ppv_of_alerts": 0.07,
+      "septic_patients": 108
+    },
+    "Model without lab-ordering features, same false-alarm rate as NEWS2 >= 7": {
+      "threshold": 0.1377,
+      "sensitivity": 0.917,
+      "median_lead_time_h": 3.0,
+      "false_alarms_per_100_patient_days": 32.3,
+      "ppv_of_alerts": 0.066,
+      "septic_patients": 108
+    }
+  },
+  "subgroups": {
+    "age < 50": {
+      "patients": 205,
+      "septic_patients": 24,
+      "model (NEWS2 >= 7 alarm rate)": {
+        "auroc": 0.814,
+        "auprc": 0.38,
+        "sensitivity": 0.917,
+        "median_lead_time_h": 3.0,
+        "false_alarms_per_100_patient_days": 19.6
+      },
+      "NEWS2 >= 7": {
+        "auroc": 0.719,
+        "auprc": 0.053,
+        "sensitivity": 0.625,
+        "median_lead_time_h": 2.0,
+        "false_alarms_per_100_patient_days": 36.9
+      }
+    },
+    "age 50-69": {
+      "patients": 583,
+      "septic_patients": 54,
+      "model (NEWS2 >= 7 alarm rate)": {
+        "auroc": 0.836,
+        "auprc": 0.42,
+        "sensitivity": 0.981,
+        "median_lead_time_h": 3.0,
+        "false_alarms_per_100_patient_days": 32.5
+      },
+      "NEWS2 >= 7": {
+        "auroc": 0.724,
+        "auprc": 0.048,
+        "sensitivity": 0.574,
+        "median_lead_time_h": 2.0,
+        "false_alarms_per_100_patient_days": 32.0
+      }
+    },
+    "age >= 70": {
+      "patients": 412,
+      "septic_patients": 30,
+      "model (NEWS2 >= 7 alarm rate)": {
+        "auroc": 0.8,
+        "auprc": 0.287,
+        "sensitivity": 0.967,
+        "median_lead_time_h": 3.0,
+        "false_alarms_per_100_patient_days": 37.0
+      },
+      "NEWS2 >= 7": {
+        "auroc": 0.673,
+        "auprc": 0.036,
+        "sensitivity": 0.6,
+        "median_lead_time_h": 2.0,
+        "false_alarms_per_100_patient_days": 34.0
+      }
+    },
+    "COPD": {
+      "patients": 137,
+      "septic_patients": 19,
+      "model (NEWS2 >= 7 alarm rate)": {
+        "auroc": 0.678,
+        "auprc": 0.3,
+        "sensitivity": 0.947,
+        "median_lead_time_h": 2.0,
+        "false_alarms_per_100_patient_days": 22.7
+      },
+      "NEWS2 >= 7": {
+        "auroc": 0.679,
+        "auprc": 0.072,
+        "sensitivity": 0.947,
+        "median_lead_time_h": 6.0,
+        "false_alarms_per_100_patient_days": 168.3
+      }
+    },
+    "no COPD": {
+      "patients": 1063,
+      "septic_patients": 89,
+      "model (NEWS2 >= 7 alarm rate)": {
+        "auroc": 0.855,
+        "auprc": 0.387,
+        "sensitivity": 0.966,
+        "median_lead_time_h": 3.0,
+        "false_alarms_per_100_patient_days": 33.1
+      },
+      "NEWS2 >= 7": {
+        "auroc": 0.711,
+        "auprc": 0.044,
+        "sensitivity": 0.517,
+        "median_lead_time_h": 2.0,
+        "false_alarms_per_100_patient_days": 16.5
+      }
+    },
+    "post-operative": {
+      "patients": 443,
+      "septic_patients": 42,
+      "model (NEWS2 >= 7 alarm rate)": {
+        "auroc": 0.808,
+        "auprc": 0.368,
+        "sensitivity": 0.976,
+        "median_lead_time_h": 3.0,
+        "false_alarms_per_100_patient_days": 29.6
+      },
+      "NEWS2 >= 7": {
+        "auroc": 0.76,
+        "auprc": 0.06,
+        "sensitivity": 0.762,
+        "median_lead_time_h": 3.0,
+        "false_alarms_per_100_patient_days": 38.6
+      }
+    },
+    "not post-operative": {
+      "patients": 757,
+      "septic_patients": 66,
+      "model (NEWS2 >= 7 alarm rate)": {
+        "auroc": 0.826,
+        "auprc": 0.37,
+        "sensitivity": 0.955,
+        "median_lead_time_h": 3.0,
+        "false_alarms_per_100_patient_days": 33.2
+      },
+      "NEWS2 >= 7": {
+        "auroc": 0.679,
+        "auprc": 0.033,
+        "sensitivity": 0.485,
+        "median_lead_time_h": 2.0,
+        "false_alarms_per_100_patient_days": 30.6
+      }
+    }
+  },
+  "top_features": {
+    "lactate_last": 0.0565,
+    "wbc_hours_since": 0.0532,
+    "wbc_n_draws_24h": 0.0361,
+    "hr_vs_baseline": 0.016,
+    "hour": 0.0148,
+    "hr_delta6": 0.0085,
+    "temp_vs_baseline": 0.0074,
+    "lactate_x_sbp": 0.0068,
+    "platelets_last": 0.0065,
+    "resp_rate_delta6": 0.0059
+  }
+}
